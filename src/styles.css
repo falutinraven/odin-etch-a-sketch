@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    width: 960px;
+    height: 960px;
+}
+
+.row {
+    flex: 1 1 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.col {
+    flex: 1 1 100%;
+    border: 1px solid black;
+}
