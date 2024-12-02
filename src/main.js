@@ -26,7 +26,8 @@ function make_board(rows, cols){
         container.appendChild(row);
         for (j = 0; j < cols; j++){
             let cell = document.createElement("div");
-            cell.classList.add("col")
+            cell.classList.add("col");
+            cell.style.opacity = .1;
             row.appendChild(cell);
         }
     }
@@ -35,7 +36,11 @@ function make_board(rows, cols){
     let cells = document.querySelectorAll(".col");
     cells.forEach(element => {
         element.addEventListener("mouseover", (e) => {
-            e.target.style.backgroundColor = "purple";
+            let opacity = parseFloat(window.getComputedStyle(e.target).getPropertyValue("opacity"));
+            console.log(opacity);
+            e.target.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            e.target.style.opacity = Math.min(opacity + .1, 1).toString();
+            console.log(opacity);
     })});
 }
 
